@@ -15,7 +15,9 @@ public class Matching_Anything_But_a_Newline {
 
 	static {
 		try {
-			System.setIn(Matching_Anything_But_a_Newline.class.getResource("/Matching_Anything_But_a_Newline_STC0").openStream());
+			System.setIn(Matching_Anything_But_a_Newline.class
+					.getResource("/Matching_Anything_But_a_Newline_STC0")
+					.openStream());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -23,7 +25,7 @@ public class Matching_Anything_But_a_Newline {
 	
 	public static void main(String[] args) {
 		try (var scanner = new Scanner(System.in)) {
-			System.out.println(Pattern.compile("(...\\.){3}...").matcher(scanner.nextLine()).matches());
+			System.out.println(Pattern.matches("(...\\.){3}...", scanner.nextLine()));
 		}
 	}
 

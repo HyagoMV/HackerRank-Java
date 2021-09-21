@@ -23,7 +23,7 @@ public class Matching_Word_E_Non_Word_Character {
 	
 	public static void main(String[] args) {
 		try (var scanner = new Scanner(System.in)) {
-			System.out.println(Pattern.compile("\\w{3}\\W\\w{10}\\W\\w{3}").matcher(scanner.nextLine()).find());
+			System.out.println(Pattern.matches("\\w{3}\\W\\w{10}\\W\\w{3}", scanner.nextLine()));
 		}
 	}
 

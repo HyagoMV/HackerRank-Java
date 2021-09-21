@@ -23,7 +23,7 @@ public class Matching_Whitespace_E_Non_Whitespace_Character {
 	
 	public static void main(String[] args) {
 		try (var scanner = new Scanner(System.in)) {
-			System.out.println(Pattern.compile("(\\S{2}\\s){2}\\S{2}").matcher(scanner.nextLine()).find());
+			System.out.println(Pattern.matches("(\\S{2}\\s){2}\\S{2}", scanner.nextLine()));
 		}
 	}
 

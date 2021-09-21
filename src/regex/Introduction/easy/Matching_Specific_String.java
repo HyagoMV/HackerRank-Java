@@ -14,7 +14,9 @@ public class Matching_Specific_String {
 
 	static {
 		try {
-			System.setIn(Matching_Specific_String.class.getResource("/Matching_Specific_String_STC0").openStream());
+			System.setIn(Matching_Specific_String.class
+					.getResource("/Matching_Specific_String_STC0")
+					.openStream());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

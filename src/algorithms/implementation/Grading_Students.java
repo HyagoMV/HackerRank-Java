@@ -10,9 +10,8 @@ import algorithms.warmup.A_Very_Big_Sum;
 public class Grading_Students {
 	static {
 		try {
-			System.setIn(A_Very_Big_Sum.class
-							.getResource("/algorithms/implementation/Grading_Students_STC0")
-							.openStream());
+			System.setIn(
+					A_Very_Big_Sum.class.getResource("/algorithms/implementation/Grading_Students_STC0").openStream());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -22,22 +21,16 @@ public class Grading_Students {
 		try (var scanner = new Scanner(System.in)) {
 			scanner.nextLine(); // Skip first line
 
-			var listNotas = scanner.findAll("\\d+")
-					.map(mr -> Integer.valueOf(mr.group()))
-					.collect(Collectors.toList());
-			
-			listNotas.stream()
-				.map(nota -> {
-					var nextFiveMult = (int) Math.ceil(nota / 5D) * 5;
-					var temp =  nextFiveMult - nota;
-					if (temp < 3)
-						if(nextFiveMult >= 40)
-							return nextFiveMult;
-						else
-							return nota;
-					else
-						return nota;
-				}).forEach(System.out::println);
+			while (scanner.hasNextInt()) {
+				var nota = scanner.nextInt();
+				var proximoMultCinco = (int) Math.ceil(nota / 5D) * 5;
+				var diff = proximoMultCinco - nota;
+				
+				if (proximoMultCinco >= 40 && diff < 3)
+					System.out.println(proximoMultCinco);
+				else
+					System.out.println(nota);
+			}
 		}
 	}
 }
